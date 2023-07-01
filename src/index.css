@@ -1,13 +1,53 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Ubuntu", "Oswald",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Oswald", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*/
+/* h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Playfair Display", serif;
+} */
+/* 
+*/
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-red-700 text-white rounded-lg shadow-md hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75;
+  }
+  .btn-secondary {
+    @apply text-black bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-red-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2;
+  }
+  .form-label {
+    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
+  }
+  .input-box {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Lora", serif;
+  }
 }
