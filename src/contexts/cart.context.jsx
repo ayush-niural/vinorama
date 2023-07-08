@@ -62,8 +62,8 @@ const CartProvider = ({ children }) => {
     setCartTotal(total.toFixed(2));
   }, [cartItems]);
 
-  const toogleCart = (e) => {
-    e.preventDefault();
+  const toogleCart = () => {
+    // e.preventDefault();
     setIsCartOpen(!isCartOpen);
   };
   const value = {

@@ -10,7 +10,7 @@ import {
 
 import { useContext } from "react";
 
-import Cart from "./Cart";
+import Cart from "../components/Cart";
 import { CartContext } from "../contexts/cart.context";
 import { ModalContext } from "../contexts/modal.context";
 import Dialog from "../components/Dialog";

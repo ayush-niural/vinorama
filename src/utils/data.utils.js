@@ -10,23 +10,22 @@ export const getCatagories = () => {
   return mappedCategories;
 };
 
-export const getWineList = (category) => {
-  wineData.map((item) => {
-    let found = false;
-    for (const key in item) {
-      if (item[key] === category) {
-        found = true;
-        break;
-      }
-    }
-
-    if (found) {
-      // console.log("Returned Value: " + JSON.stringify(item));
-      return item;
-    } else {
-      return { response: "No wine list in this category" };
-    }
-  });
-
-  return wineData.filter((item) => item.category === category);
+export const getAllWines = (category = null) => {
+  if (category === null) {
+    return wineData.flatMap(({ category, wines }) =>
+      wines.map((wine) => ({ ...wine, category }))
+    );
+  } else {
+    return wineData
+      .flatMap(({ category: cat, wines }) =>
+        wines.map((wine) => {
+          if (cat === category) {
+            return { ...wine, category: cat };
+          } else {
+            return null;
+          }
+        })
+      )
+      .filter(Boolean);
+  }
 };
