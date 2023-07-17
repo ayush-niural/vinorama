@@ -17,18 +17,26 @@ export default function Checkout() {
       <h1 className="text-lg font-bold p-4">Checkout Page</h1>
       {cartItems.length !== 0 ? (
         <div className="w-full py-12 bg-slate-0">
-          <div>
-            <div className="flex flex-row w-full p-4 justify-between">
-              <p className="text-left text-base font-medium">Product</p>
-              <p className="text-right text-base font-medium ">Price</p>
-            </div>
-          </div>
-          {cartItems.map((items) => (
-            <div className=" p-4 my-4 flex justify-between rounded-lg shadow-sm flex-row bg-slate-50 w-full">
-              <p>{items.name}</p>
-              <p className="font-medium">{`Nrs. ${items.price}`}</p>
-            </div>
-          ))}
+          <table className="w-full">
+            <thead>
+              <tr>
+                <th className="p-4 text-left">Product</th>
+                <th className="p-4 text-center">Quantity</th>
+                <th className="p-4 text-right">Price</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y-8 divide-white">
+              {cartItems.map((items) => (
+                <tr className="bg-slate-50 shadow-sm rounded-lg">
+                  <td className="p-4 text-left">{items.name}</td>
+                  <td className="p-4 text-center">{items.quantity}</td>
+                  <td className="p-4 text-right">{`Nrs. ${items.price}`}</td>
+                </tr>
+              ))}
+
+              {/* Add your product rows here */}
+            </tbody>
+          </table>
 
           <div className="flex justify-end p-4 mt-4">
             <div className="w-[40%] tablet:w-full mobile:w-full">

@@ -13,7 +13,7 @@ export default function Layout() {
         Your item has been added to cart
       </div> */}
       <Navigation />
-      <div className="container mx-auto">
+      <div className="container my-6 mx-auto">
         <Outlet />
       </div>
       <div

@@ -9,12 +9,16 @@ import { getAlpha2Code, registerLocale } from "i18n-iso-countries";
 registerLocale(en);
 
 export default function WineCard({ wine }) {
+  const { name, id, image, price, saleprice, region, country, grape, rating } =
+    wine;
+  const { addItemToCart, toogleCart } = useContext(CartContext);
+
   const getCountryCode = (countryName) => {
     const countryCode = getAlpha2Code(countryName, "en"); // Pass the locale as the second parameter
     return countryCode ? countryCode.toLowerCase() : null;
   };
 
-  const StarRating = ({ rating, id }) => {
+  const StarRating = ({ rating }) => {
     const roundedRating = Math.round(rating);
     return (
       <div className="flex items-center">
@@ -34,24 +38,8 @@ export default function WineCard({ wine }) {
     );
   };
 
-  const {
-    name,
-    id,
-    image,
-    price,
-    quantity,
-    saleprice,
-    region,
-    country,
-    grape,
-    rating,
-  } = wine;
-  const { addItemToCart, toogleCart } = useContext(CartContext);
   return (
-    <div
-      key={id}
-      className="text-left shadow-sm hover:shadow-lg border border-gray-300 rounded-lg overflow-clip"
-    >
+    <div className="text-left shadow-sm hover:shadow-lg border border-gray-300 rounded-lg overflow-clip">
       <img src={image} alt={name} />
       <div className="flex flex-col gap-1 px-4">
         <span className="text-slate-500">{grape}</span>
@@ -81,7 +69,7 @@ export default function WineCard({ wine }) {
 
       <div className="px-4 py-4 flex justify-between w-full items-center laptop:flex-col laptop:gap-4">
         <div className="laptop:flex w-full">
-          {StarRating(rating, id)}
+          {StarRating(rating)}
           {rating} rating
         </div>
         <button
@@ -97,11 +85,6 @@ export default function WineCard({ wine }) {
           {/* {price} */}
           Shop Item
         </button>
-      </div>
-      <div className="flex flex-row p-4">
-        <button>-</button>
-        <div>{quantity}</div>
-        <button>+</button>
       </div>
     </div>
   );

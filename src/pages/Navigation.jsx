@@ -26,7 +26,7 @@ export default function Navigation() {
   return (
     <>
       <div
-        className={`px-8 flex justify-between py-4 items-center border-b-2 border-b-solid mb-6 ${
+        className={`px-8 flex justify-between py-4 items-center border-b-2 border-b-solid ${
           navigationState ? "tablet:flex-col mobile:flex-col" : "flex-row"
         } `}
       >
@@ -105,6 +105,9 @@ export default function Navigation() {
               : "mobile:hidden tablet:hidden laptop:flex laptop:items-center desktop:flex desktop:items-center"
           } `}
         >
+          <Link className="p-2" to="/explore">
+            Explore
+          </Link>
           <Link className="p-2" to="/shop">
             Wine
           </Link>

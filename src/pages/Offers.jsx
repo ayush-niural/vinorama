@@ -8,7 +8,7 @@ export default function Offers() {
       <h1 className="font-bold text-lg text-slate-900 mb-8">Offer's</h1>
       <div className="grid grid-cols-4 gap-4  mobile:grid-cols-1 mobile:gap-6 tablet:grid-cols-2">
         {wineList.map((wine) =>
-          wine.saleprice ? <WineCard wine={wine} /> : <></>
+          wine.saleprice ? <WineCard key={wine.id} wine={wine} /> : <></>
         )}
       </div>
     </div>

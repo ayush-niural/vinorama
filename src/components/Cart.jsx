@@ -7,6 +7,7 @@ export default function Cart() {
   const {
     cartItems,
     removeItemFromCart,
+    addItemToCart,
     isCartOpen,
     toogleCart,
     cartTotal,
@@ -29,9 +30,6 @@ export default function Cart() {
               className="w-6 h-6 text-gray-500 cursor-pointer"
             ></XMarkIcon>
           </div>
-
-          {/* ------------- */}
-          {/* {console.log(typeof cartItems)} */}
 
           {cartItemsCount ? (
             <div>
@@ -61,10 +59,30 @@ export default function Cart() {
                             {product.color}
                           </p>
                         </div>
-                        <div className="flex flex-1 items-end justify-between text-sm">
-                          <p className="text-gray-500">
-                            Qty {product.quantity}
-                          </p>
+                        <div className="flex flex-1 items-end justify-between text-base">
+                          <div className="flex flex-row rounded-full border-[1px] border-slate-200">
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                removeItemFromCart(product.id);
+                              }}
+                              className="px-4 py-2 rounded-full bg-slate-100 "
+                            >
+                              -
+                            </button>
+                            <div className="px-4 py-2  ">
+                              {`${product.quantity} Bottle`}
+                            </div>
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                addItemToCart(product);
+                              }}
+                              className="px-4 py-2 rounded-full bg-slate-100"
+                            >
+                              +
+                            </button>
+                          </div>
 
                           <div className="flex">
                             <button

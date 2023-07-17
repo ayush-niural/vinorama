@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   const categories = getCatagories();
   return (
-    <div className="container flex flex-col mb-6 mobile:p-8">
+    <div className="container flex flex-col mobile:p-8">
       <h1 className="font-bold text-lg text-slate-900 mb-6">Categories</h1>
 
       <div className="grid grid-cols-4 gap-4  mobile:grid-cols-1 mobile:gap-6 tablet:grid-cols-2">
